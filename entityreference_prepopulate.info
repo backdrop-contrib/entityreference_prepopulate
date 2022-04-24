@@ -1,0 +1,7 @@
+name = Entity reference prepopulate
+description = Prepopulate entity reference values from URL.
+backdrop = 1.x
+type = module
+package = Fields
+dependencies[] = entityreference
+

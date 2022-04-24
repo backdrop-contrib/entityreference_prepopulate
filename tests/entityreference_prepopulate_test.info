@@ -1,0 +1,7 @@
+name = Entity reference prepopulate test module
+description = Functionality to assist Entity reference prepopulate testing.
+backdrop = 1.x
+type = module
+dependencies[] = entityreference_prepopulate
+dependencies[] = og_context
+hidden = TRUE
