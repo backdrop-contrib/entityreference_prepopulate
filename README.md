@@ -1,5 +1,9 @@
-Description
+Entity Reference Prepopulate
 ===========
+
+Description
+-----------
+
 Allows the contents of an "Entity Reference" field to be pre-populated by
 taking a parameter from the URL path.
 
