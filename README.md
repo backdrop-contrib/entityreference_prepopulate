@@ -1,4 +1,4 @@
-Entity Reference Prepopulate
+Entityreference Prepopulate
 ===========
 
 Description
