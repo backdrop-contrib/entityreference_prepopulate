@@ -74,7 +74,7 @@ class EntityReferencePrepopulateInstanceBehavior extends EntityReferenceBehavior
 
     // Sort providers by weight.
     $providers_names = !empty($instance['settings']['behaviors']['prepopulate']['providers']) ? array_keys($instance['settings']['behaviors']['prepopulate']['providers']) : array();
-    $providers_names = backdrop_array_merge_deep($providers_names, array_keys($providers));
+    $providers_names = $providers_names + array_keys($providers);
 
     $weight = 0;
     foreach ($providers_names as $name) {
@@ -174,9 +174,11 @@ function theme_entityreference_prepopulate_providers_table($variables) {
  */
 function entityreference_prepopulate_providers_validate($element, &$form_state) {
   $value = $form_state['values']['instance']['settings']['behaviors']['prepopulate']['providers']['enabled'];
-
-  // Sort the value by the weight.
-  uasort($value, 'backdrop_sort_weight');
-
-  form_set_value($element, $value, $form_state);
+  $weights = $form_state['values']['instance']['settings']['behaviors']['prepopulate']['providers']['weight'];
+  asort($weights);
+  $sorted_values = array();
+  foreach ($weights as $key => $weight) {
+    $sorted_values[$key] = $value[$key];
+  }
+  form_set_value($element, $sorted_values, $form_state);
 }
